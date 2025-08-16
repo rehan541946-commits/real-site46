@@ -1,16 +1,21 @@
 backend:
   name: git-gateway
   branch: main
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
-
+media_folder: "uploads"
+public_folder: "/uploads"
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "content/posts"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: home
+    label: Home
+    files:
+      - file: "content/home.json"
+        label: "Homepage Content"
+        name: homepage
+        fields:
+          - { label: "Hero Title", name: hero_title, widget: string }
+          - { label: "Hero Subtext", name: hero_sub, widget: text }
+          - { label: "Phone", name: phone, widget: string }
+          - { label: "Email", name: email, widget: string }
+          - label: KPIs
+            name: kpis
+            widget: list
+            field: { label: Item, name: item, widget: string }
